@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+    input,button{
+        width:200px;
+        margin: 10px;
+    }
+    label{
+        margin-left: 10px;
+    }
+
+    div{
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+</style>
+<script>
+    var text = "Nome é necessário"
+       
+    var text2 = "Sobrenome é necessário"
+    function verificar(){
+        var nome = document.getElementById("input").value;
+        var nome2 = document.getElementById("input2").value;
+        //document.getElementById("sobrenome-aviso").innerHTML = text2;
+
+        if(nome == "" || nome2 == ""){
+            if(nome == ""){
+            document.getElementById("botao").disabled = true
+            document.getElementById("input").style.backgroundColor = "red"
+            document.getElementById("nome-aviso").innerHTML = text;
+            document.getElementById("nome-aviso").style.color = "red";
+            }
+            if(nome2 == ""){
+            document.getElementById("botao").disabled = true
+            document.getElementById("input2").style.backgroundColor = "red"
+            document.getElementById("sobrenome-aviso").innerHTML = text2;
+            document.getElementById("sobrenome-aviso").style.color = "red";
+            }
+        }
+
+
+    }
+
+    function validar(){
+        var nome = document.getElementById("input").value;
+        var nome2 = document.getElementById("input2").value;
+        if(nome != "" && nome2 != ""){
+            document.getElementById("botao").disabled = false
+            
+        }
+        if(nome != ""){
+        document.getElementById("input").style.backgroundColor = "white"
+        document.getElementById("nome-aviso").innerHTML = "";
+        }
+
+        if(nome2 != ""){
+        document.getElementById("input2").style.backgroundColor = "white"
+        document.getElementById("sobrenome-aviso").innerHTML = "";
+        }
+        if(nome == "" || nome2 == ""){
+            if(nome == ""){
+            //document.getElementById("botao").disabled = true
+            document.getElementById("input").style.backgroundColor = "red"
+            document.getElementById("nome-aviso").innerHTML = text;
+            document.getElementById("nome-aviso").style.color = "red";
+            }
+            if(nome2 == ""){
+            //document.getElementById("botao").disabled = true
+            document.getElementById("input2").style.backgroundColor = "red"
+            document.getElementById("sobrenome-aviso").innerHTML = text2;
+            document.getElementById("sobrenome-aviso").style.color = "red";
+            }
+        }
+        
+    }
+
+</script>
+<body>
+    <h1>Cadastro</h1>
+    <form action="">
+        <label for="">Nome</label>
+        <input type="text" name="" id="input" onfocusout="validar()">
+        <div id="nome-aviso">
+
+        </div>
+        <label for="">Sobrenome</label>
+        <input type="text" name="" id="input2"  onfocusout="validar()">
+        <div id="sobrenome-aviso">
+
+        </div>
+        <button onmousemove="verificar()" id="botao">Cadastrar</button>
+    </form>
+</body>
+</html>
